@@ -75,6 +75,15 @@
   .ment-link span{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
   .ment-link .a{margin-left:2px;transition:transform .15s}
   .ment-link:hover .a{transform:translateX(3px)}
+  /* bigger hero mentorship CTA */
+  .ment-cta{display:flex;align-items:center;justify-content:space-between;gap:22px;margin-top:34px;padding:24px 28px;border:1px solid var(--gold);border-radius:16px;background:linear-gradient(180deg,color-mix(in srgb,var(--gold) 11%,var(--surface)),var(--surface));transition:transform .15s}
+  .ment-cta:hover{transform:translateY(-2px)}
+  .ment-cta-k{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px}
+  .ment-cta b{font-size:1.2rem;font-weight:700;display:block;letter-spacing:-.01em}
+  .ment-cta p{color:var(--muted);font-size:.94rem;margin-top:5px;max-width:46ch}
+  .ment-cta .arr{font-size:1.7rem;color:var(--gold);flex:none;transition:transform .15s}
+  .ment-cta:hover .arr{transform:translateX(4px)}
+  @media (max-width:560px){.ment-cta{flex-direction:column;align-items:flex-start;gap:14px}}
 
   section{padding:56px 0;border-top:1px solid var(--line)}
   .phase-id{font-family:'JetBrains Mono',monospace;font-size:.74rem;letter-spacing:.18em;color:var(--accent);text-transform:uppercase}
@@ -253,7 +262,14 @@
     <p class="tag">/ Your first day, laid out step by step.</p>
     <p class="lead"><b>Full Port University — FPU for short — is an options and futures trading community.</b> We post live trades in our Discord, teach you from scratch, and keep your risk tight. Learn while you earn — no experience needed.</p>
     <p class="lead">You're in. Now get set up the right way. Work top to bottom — each step has a short video. <b>Don't trade until you finish.</b></p>
-    <a class="ment-link reveal" href="#mentorship"><span>Optional</span> Prefer hands-on guidance? Explore 1-on-1 mentorship <span class="a" style="color:var(--gold)">&#8594;</span></a>
+    <a class="ment-cta reveal" href="https://calendly.com/d/cxmn-djx-py5/fullportuniversity-enrollment-session-enrollment" target="_blank" rel="noopener">
+      <div>
+        <span class="ment-cta-k">Optional · 1-on-1 Mentorship</span>
+        <b>Want the full course + hands-on help?</b>
+        <p>This onboarding is the basics. For the full course with your trades reviewed 1-on-1, book a call.</p>
+      </div>
+      <span class="arr">&#8594;</span>
+    </a>
   </div>
 </header>
 
@@ -299,6 +315,15 @@
     </ol>
     <p class="rule reveal"><b>One more step — not in the video:</b> turn on same-day expirations. Robinhood: Settings → Investing → Options → turn on "Trade on expiration date." Most other brokers already have it on.</p>
 
+    <details class="reveal" style="margin-top:18px">
+      <summary><span>Account setup — common questions</span><span style="display:flex;align-items:center;gap:14px"><span class="meta">3 questions</span><span class="pm">+</span></span></summary>
+      <div class="body">
+        <div class="faq-q"><h4>Do I need to apply for options?</h4><p>Yes. Apply when you open your brokerage — you can't trade options until you're approved. Do it early so you're not waiting.</p></div>
+        <div class="faq-q"><h4>I can't find today's (same-day) expiration on Robinhood</h4><p>Turn it on: <span class="mono">Settings → Investing → Options → enable "Trade on expiration date."</span> Most other brokers already have it on.</p></div>
+        <div class="faq-q"><h4>Can I day-trade with under $25,000?</h4><p>Yes — switch to a <b>cash account</b> to skip the day-trading limit (the "PDT rule"). You trade with <b>settled cash</b> — what you have at the open. Sell a position to free that cash; it settles back overnight.</p></div>
+      </div>
+    </details>
+
     <span class="substep divide reveal">Part 2 · Copy our trades</span>
     <p class="intro reveal">Every trade we post uses the same 4 tags. Learn them and you can copy any call.</p>
     <div class="tagrow reveal">
@@ -309,6 +334,17 @@
     </div>
     <p class="rule reveal"><b>Entry rule:</b> get in as close to our <span class="mono">[BUY]</span> price as you can. If it's already <b>10–15% above</b> our entry, skip it and wait for the next call. Don't chase.</p>
     <p class="rule reveal"><b>Golden rule:</b> Trim into profit, then move your stop to breakeven — so a winner can't turn into a loss.</p>
+
+    <details class="reveal" style="margin-top:18px">
+      <summary><span>Trades &amp; signals — common questions</span><span style="display:flex;align-items:center;gap:14px"><span class="meta">5 questions</span><span class="pm">+</span></span></summary>
+      <div class="body">
+        <div class="faq-q"><h4>How do I follow a signal?</h4><p>First, know the parts of a contract (below) and how to find them on your broker. A signal looks like <span class="mono">[BUY] TSLA 3/8 $180 Call @ 2.00</span>. Then follow the tags: <b>[BUY]</b> buy it · <b>[TRIM]</b> sell part to bank profit · <b>[SELL]</b> sell the rest · <b>[CLOSE]</b> cut a loss.</p></div>
+        <div class="faq-q"><h4>TRIM vs SELL — what's the difference?</h4><p><b>TRIM</b> = sell some (usually half) to lock in profit while keeping a little upside. <b>SELL</b> = sell it all, you're fully out. Example: hold 5 contracts → a TRIM might sell 1–2; a SELL closes all 5. Only have 1 contract? Treat the first TRIM as your sell.</p></div>
+        <div class="faq-q"><h4>Stocks vs options — what's the difference?</h4><p>A stock is owning part of a company. An option is a contract tied to that stock's price — you trade the contract, not the shares. One Call contract is the <i>right</i> to buy 100 shares at a set price, but you never actually have to. You buy contracts cheap and sell them higher.</p></div>
+        <div class="faq-q"><h4>What's a Call and a Put?</h4><p>A <b>Call</b> bets the stock goes up. A <b>Put</b> bets it goes down. Example: <span class="mono">TSLA 3/8 $180 Call</span> bets Tesla is above $180 by March 8.</p></div>
+        <div class="faq-q"><h4>What do the parts of a contract mean?</h4><p>Format: <span class="mono">[Stock] [Expiration] $[Strike] [Call/Put] @ [Price]</span>. Example: <span class="mono">TSLA 3/8 $180 Call @ 2.00</span> — stock TSLA, expires 3/8, strike $180, a Call, price 2.00. Each contract = 100 shares, so <span class="mono">2.00</span> = <span class="mono">$200</span>.</p></div>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -349,6 +385,15 @@
       </div>
       <div class="detail" style="margin-top:16px"><b>Protect your wins.</b> Trim into profit. Move your stop to breakeven. Never let a green trade go red. Survive first — the gains add up when you're still here next month.</div>
     </div>
+
+    <details class="reveal" style="margin-top:18px">
+      <summary><span>Risk &amp; sizing — common questions</span><span style="display:flex;align-items:center;gap:14px"><span class="meta">3 questions</span><span class="pm">+</span></span></summary>
+      <div class="body">
+        <div class="faq-q"><h4>How much per trade? What's a "lotto"?</h4><p>Size by % of your account: <b>Full</b> 3–5%, <b>Small</b> 1–3%, <b>Lotto</b> under 1% (high risk, can go to $0). Small account? You may need a higher % — don't chase $0.05 contracts just to stay "lotto" size; they rarely hit.</p></div>
+        <div class="faq-q"><h4>What's your take-profit / stop-loss plan?</h4><p>Manual trailing take-profit: enter with a few contracts, <b>[TRIM]</b> about half at ~20–40% profit, then move your stop to breakeven so it can't turn into a loss. Hard stop around -50%, but we usually <span class="mono">[SELL]</span> well before that.</p></div>
+        <div class="faq-q"><h4>How does time-to-expiration change the risk?</h4><p>Less time = more risk. <b>1–7 days</b> ultra-high (loses value fast) · <b>8–14</b> high · <b>15–30</b> moderate · <b>31–60</b> low-moderate · <b>60+</b> lowest (LEAPS, long-term).</p></div>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -476,9 +521,9 @@
     <div class="ment reveal">
       <span class="eyebrow">Optional — Go further</span>
       <h2>Want 1-on-1 mentorship?</h2>
-      <p>Want your trades reviewed and a plan built with you? We offer 1-on-1 mentorship. Book a call and we'll see if it's a fit.</p>
-      <!-- When live: change <span> to <a href="..."> and remove is-soon + .soon-pill (restore the <span class="a">&#8594;</span> arrow) -->
-      <span class="btn gold is-soon" role="link" aria-disabled="true">Book a call <span class="soon-pill">Coming soon</span></span>
+      <p>What you just went through covers the <b>basics of options trading</b> — enough to get set up and start copying our calls. The best next step is simple: <b>get in the server and start participating.</b></p>
+      <p>If you want more — the <b>full course</b> plus <b>1-on-1 help</b> with your trades reviewed and a plan built with you — that's when to book a call. We'll see if it's a fit.</p>
+      <a class="btn gold" href="https://calendly.com/d/cxmn-djx-py5/fullportuniversity-enrollment-session-enrollment" target="_blank" rel="noopener">Book a call <span class="a">&#8594;</span></a>
     </div>
   </div>
 </section>
@@ -529,17 +574,6 @@
   </div>
 </section>
 
-<!-- MILESTONE -->
-<section id="ready">
-  <div class="wrap">
-    <div class="milestone reveal">
-      <div class="k">🔑</div>
-      <h3>You're ready for your first trade.</h3>
-      <p>You're connected, set up, and trained. Now follow calls live. Start small, respect your risk, and ask questions in the server.</p>
-    </div>
-  </div>
-</section>
-
 <!-- BONUS — FUTURES — TEMP HIDDEN; remove the hidden attribute below to restore -->
 <section id="bonus" hidden>
   <div class="wrap">
@@ -564,58 +598,20 @@
       <div><span class="x">✗</span><b>Never bet what you can't lose.</b><p>Options can go to $0. Size every trade so a full loss won't hurt.</p></div>
       <div><span class="x">✗</span><b>Admins never DM you first.</b><p>Any "copy trader" or investment DM is a scam. Verify names inside the server only.</p></div>
     </div>
-  </div>
-</section>
 
-<!-- FAQ -->
-<section id="faq">
-  <div class="wrap">
-    <span class="phase-id">Got questions?</span>
-    <h2 class="reveal">FAQ.</h2>
-    <p class="intro reveal">Quick answers to what new members ask most. Tap a group to open it.</p>
-
-    <details class="reveal" open>
-      <summary><span>Options basics</span><span style="display:flex;align-items:center;gap:14px"><span class="meta">3 questions</span><span class="pm">+</span></span></summary>
-      <div class="body">
-        <div class="faq-q"><h4>Stocks vs options — what's the difference?</h4><p>A stock is owning part of a company. An option is a contract tied to that stock's price — you trade the contract, not the shares. One Call contract is the <i>right</i> to buy 100 shares at a set price, but you never actually have to. You buy contracts cheap and sell them higher.</p></div>
-        <div class="faq-q"><h4>What's a Call and a Put?</h4><p>A <b>Call</b> bets the stock goes up. A <b>Put</b> bets it goes down. Example: <span class="mono">TSLA 3/8 $180 Call</span> bets Tesla is above $180 by March 8.</p></div>
-        <div class="faq-q"><h4>What do the parts of a contract mean?</h4><p>Format: <span class="mono">[Stock] [Expiration] $[Strike] [Call/Put] @ [Price]</span>. Example: <span class="mono">TSLA 3/8 $180 Call @ 2.00</span> — stock TSLA, expires 3/8, strike $180, a Call, price 2.00. Each contract = 100 shares, so <span class="mono">2.00</span> = <span class="mono">$200</span>.</p></div>
-      </div>
-    </details>
-
-    <details class="reveal">
-      <summary><span>Following our signals</span><span style="display:flex;align-items:center;gap:14px"><span class="meta">2 questions</span><span class="pm">+</span></span></summary>
-      <div class="body">
-        <div class="faq-q"><h4>How do I follow a signal?</h4><p>First, know the parts of a contract (above) and how to find them on your broker. A signal looks like <span class="mono">[BUY] TSLA 3/8 $180 Call @ 2.00</span>. Then follow the tags: <b>[BUY]</b> buy it · <b>[TRIM]</b> sell part to bank profit · <b>[SELL]</b> sell the rest · <b>[CLOSE]</b> cut a loss.</p></div>
-        <div class="faq-q"><h4>TRIM vs SELL — what's the difference?</h4><p><b>TRIM</b> = sell some (usually half) to lock in profit while keeping a little upside. <b>SELL</b> = sell it all, you're fully out. Example: hold 5 contracts → a TRIM might sell 1–2; a SELL closes all 5. Only have 1 contract? Treat the first TRIM as your sell.</p></div>
-      </div>
-    </details>
-
-    <details class="reveal">
-      <summary><span>Account setup &amp; rules</span><span style="display:flex;align-items:center;gap:14px"><span class="meta">3 questions</span><span class="pm">+</span></span></summary>
-      <div class="body">
-        <div class="faq-q"><h4>Do I need to apply for options?</h4><p>Yes. Apply when you open your brokerage — you can't trade options until you're approved. Do it early so you're not waiting.</p></div>
-        <div class="faq-q"><h4>I can't find today's (same-day) expiration on Robinhood</h4><p>Turn it on: <span class="mono">Settings → Investing → Options → enable "Trade on expiration date."</span> Most other brokers already have it on.</p></div>
-        <div class="faq-q"><h4>Can I day-trade with under $25,000?</h4><p>Yes — switch to a <b>cash account</b> to skip the day-trading limit (the "PDT rule"). You trade with <b>settled cash</b> — what you have at the open. Sell a position to free that cash; it settles back overnight.</p></div>
-      </div>
-    </details>
-
-    <details class="reveal">
-      <summary><span>Risk &amp; sizing</span><span style="display:flex;align-items:center;gap:14px"><span class="meta">3 questions</span><span class="pm">+</span></span></summary>
-      <div class="body">
-        <div class="faq-q"><h4>How much per trade? What's a "lotto"?</h4><p>Size by % of your account: <b>Full</b> 3–5%, <b>Small</b> 1–3%, <b>Lotto</b> under 1% (high risk, can go to $0). Small account? You may need a higher % — don't chase $0.05 contracts just to stay "lotto" size; they rarely hit.</p></div>
-        <div class="faq-q"><h4>What's your take-profit / stop-loss plan?</h4><p>Manual trailing take-profit: enter with a few contracts, <b>[TRIM]</b> about half at ~20–40% profit, then move your stop to breakeven so it can't turn into a loss. Hard stop around -50%, but we usually <span class="mono">[SELL]</span> well before that.</p></div>
-        <div class="faq-q"><h4>How does time-to-expiration change the risk?</h4><p>Less time = more risk. <b>1–7 days</b> ultra-high (loses value fast) · <b>8–14</b> high · <b>15–30</b> moderate · <b>31–60</b> low-moderate · <b>60+</b> lowest (LEAPS, long-term).</p></div>
-      </div>
-    </details>
-
-    <details class="reveal">
-      <summary><span>Staying safe from scams</span><span style="display:flex;align-items:center;gap:14px"><span class="meta">2 questions</span><span class="pm">+</span></span></summary>
+    <details class="reveal" style="margin-top:18px">
+      <summary><span>Staying safe from scams — common questions</span><span style="display:flex;align-items:center;gap:14px"><span class="meta">2 questions</span><span class="pm">+</span></span></summary>
       <div class="body">
         <div class="faq-q"><h4>Will an admin ever DM me?</h4><p>No. We never DM you first, and we never run a "copy trader" or investment fund. Any DM like that is a <b>scam</b>. Tip: turn off friend requests. To verify someone, click our name <i>inside</i> the Discord and message from there. Check usernames exactly — it's "traderkenny," not "_traderkenny" or "traderkennyy."</p></div>
         <div class="faq-q"><h4>Someone's DMing me pretending to be Kenny — is it real?</h4><p>Almost never. Scammers copy the name and photo, act friendly, then send you to a fake site (never Whop.com). Only trust a chat you start yourself by clicking the real name inside our Discord.</p></div>
       </div>
     </details>
+
+    <div class="milestone reveal" style="margin-top:28px">
+      <div class="k">🔑</div>
+      <h3>You're ready for your first trade.</h3>
+      <p>You're connected, set up, and trained. Now follow calls live. Start small, respect your risk, and ask questions in the server.</p>
+    </div>
   </div>
 </section>
 

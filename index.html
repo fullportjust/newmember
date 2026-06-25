@@ -6,6 +6,32 @@
 <title>Full Port University — Start Here</title>
 <meta name="description" content="New member onboarding for Full Port University. Get into the server, set up to trade, learn how our trades and risk work, and walk the free course — step by step, with video.">
 <meta name="theme-color" content="#020617">
+<meta name="color-scheme" content="dark light">
+<meta name="robots" content="index, follow">
+<!-- TODO: set both URLs below to the real deployed address once live -->
+<link rel="canonical" href="https://fullportuniversity.com/">
+
+<!-- Favicon / icons -->
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.svg" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<!-- Open Graph (social previews) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Full Port University">
+<meta property="og:title" content="Full Port University — Start Here">
+<meta property="og:description" content="New member onboarding for Full Port University — get into the server, set up to trade, and learn to copy our trades, step by step.">
+<meta property="og:url" content="https://fullportuniversity.com/">
+<meta property="og:image" content="og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Full Port University — Start Here">
+<meta name="twitter:description" content="New member onboarding — get set up and learn to copy our trades, step by step.">
+<meta name="twitter:image" content="og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -96,10 +122,13 @@
   .tagrow{display:grid;gap:10px;margin-top:4px}
   .sig{display:grid;grid-template-columns:108px 1fr;gap:18px;align-items:baseline;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 20px}
   .sig .t{font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--accent)}
-  .sig.sell .t{color:var(--x)}
+  .sig.close .t{color:var(--x)}
   .sig p{color:var(--muted);font-size:.93rem}
   .rule{margin-top:16px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:16px 20px;color:var(--muted);font-size:.93rem}
   .rule b{color:var(--text)}
+  /* sub-step label inside a combined phase */
+  .substep{font-family:'JetBrains Mono',monospace;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);display:block}
+  .substep.divide{margin-top:36px;padding-top:28px;border-top:1px solid var(--line)}
 
   /* risk — highlighted block */
   .risk-wrap{border:1px solid var(--accent-dim);border-radius:18px;padding:30px;background:linear-gradient(180deg, color-mix(in srgb,var(--accent) 7%,var(--surface)), var(--surface))}
@@ -135,6 +164,21 @@
   .lesson .goal{background:var(--surface-2);border:1px solid var(--line);border-left:2px solid var(--accent);border-radius:0 10px 10px 0;padding:12px 16px;margin-top:10px}
   .lesson .goal .glabel{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
   .lesson .goal p{font-size:.9rem;color:var(--muted);margin-top:5px}
+  /* text explainer block — for lessons with no video */
+  .explain{display:grid;gap:12px;margin:14px 0 2px}
+  .ex-card{background:var(--surface-2);border:1px solid var(--line);border-left:2px solid var(--accent);border-radius:0 12px 12px 0;padding:16px 20px}
+  .ex-card .ex-k{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:8px}
+  .ex-card p{color:var(--muted);font-size:.95rem}
+  .ex-card p b{color:var(--text);font-weight:600}
+  /* indicator setup section */
+  .ind-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0 4px}
+  .ind{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+  .ind .nm{font-weight:700;font-size:1rem;margin-bottom:6px}
+  .ind p{color:var(--muted);font-size:.9rem}
+  .ind .tvbtn{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--accent)}
+  .ind .tvbtn:hover{filter:brightness(1.2)}
+  .pbtn.auto{display:inline-flex;width:auto}
+  @media (max-width:680px){.ind-grid{grid-template-columns:1fr}}
   .covers{padding-bottom:18px;margin-bottom:10px;border-bottom:1px solid var(--line)}
   .covers .clabel{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
   .covers ul{list-style:none;margin-top:10px}
@@ -169,6 +213,12 @@
   .btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
   .btn .a{transition:transform .15s}.btn:hover .a{transform:translateX(3px)}
 
+  /* not-yet-live actions — disabled "coming soon" state (kept visible on purpose) */
+  .pbtn.is-soon,.btn.is-soon{opacity:.55;cursor:not-allowed;filter:grayscale(.4)}
+  .pbtn.is-soon:hover,.btn.is-soon:hover{transform:none;filter:grayscale(.4)}
+  .pbtn.alt.is-soon:hover{border-color:var(--line);color:var(--text)}
+  .soon-pill{font-family:'JetBrains Mono',monospace;font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:3px 8px;border-radius:999px;border:1px solid currentColor;opacity:.85;white-space:nowrap}
+
   .foot-cta{text-align:center;padding:76px 0}
   .foot-cta h2{font-size:clamp(1.8rem,4.5vw,2.6rem);margin-bottom:12px}
   .foot-cta p{color:var(--muted);margin-bottom:26px}
@@ -199,15 +249,13 @@
 <header class="hero">
   <div class="wrap">
     <span class="eyebrow">New Member Onboarding</span>
-    <h1>Start here.</h1>
-    <p class="tag">/ Your first day at FPU, laid out step by step.</p>
-    <p class="lead">You're in — now let's get you set up the right way. Each section below has a short video and the key steps. Work top to bottom: get into the server, set up to trade, learn how we trade and manage risk, then go through the course. Don't place a trade until you've been through it.</p>
-    <div class="stats">
-      <div class="stat"><div class="num">5</div><div class="lbl">Steps to get going</div></div>
-      <div class="stat"><div class="num">4</div><div class="lbl">Signal tags to learn</div></div>
-      <div class="stat"><div class="num">1</div><div class="lbl">Rule that matters most: risk</div></div>
-    </div>
-    <a class="ment-link reveal" href="#mentorship"><span>Optional</span> Prefer hands-on guidance? Explore 1-on-1 mentorship <span class="a" style="color:var(--gold)">→</span></a>
+    <h1>Welcome to Full Port University.</h1>
+    <p class="tag">/ Your first day, laid out step by step.</p>
+    <p class="lead"><b>Full Port University — FPU for short — is an options and futures trading community.</b> We post live trades in our Discord, teach you from scratch, and keep your risk tight. Learn while you earn — no experience needed.</p>
+    <p class="lead">You're in. Now get set up the right way. Work top to bottom — each step has a short video. <b>Don't trade until you finish.</b></p>
+    <!-- MENTORSHIP CTA — archived; hidden until the new mentorship funnel is built. Re-enable by uncommenting.
+    <a class="ment-link reveal" href="#mentorship"><span>Optional</span> Prefer hands-on guidance? Explore 1-on-1 mentorship <span class="a" style="color:var(--gold)">&#8594;</span></a>
+    -->
   </div>
 </header>
 
@@ -216,7 +264,7 @@
   <div class="wrap">
     <span class="phase-id">Phase 01 — Get connected</span>
     <h2 class="reveal">Get into the server.</h2>
-    <p class="intro reveal">First, get Discord running. Download the Discord app (phone or desktop) or open it in your browser and make a free account — the video below walks you through it.</p>
+    <p class="intro reveal">First, get on Discord. It's free. Download the app or open it in your browser. The video shows you how.</p>
 
     <div class="video reveal">
       <!-- ▼▼ PASTE YOUR YOUTUBE <iframe> HERE (replace this .ph block) ▼▼ -->
@@ -225,66 +273,53 @@
     </div>
 
     <div class="access reveal">
-      <p class="access-note">You should have received your invite link already — by email, or on the platform you signed up through. Can't find it? Use the buttons below to head back to your membership and grab it.</p>
+      <p class="access-note">You should already have your invite link — check your email or wherever you signed up. Can't find it? Tap your membership below to grab it.</p>
       <div class="connect">
-        <a class="pbtn primary" href="REPLACE_WITH_FANBASIS_LINK">My Fanbasis membership →</a>
-        <a class="pbtn alt" href="REPLACE_WITH_WHOP_LINK">My Whop membership →</a>
+        <a class="pbtn primary" href="https://www.fanbasis.com/portal/general/discord" target="_blank" rel="noopener">My Fanbasis membership →</a>
+        <a class="pbtn alt" href="https://whop.com/joined/fullportuniversity/click-here-to-join-discord-as-a-vip-member-xd8mZNLDg4EoGc/app/" target="_blank" rel="noopener">My Whop membership →</a>
       </div>
-      <p class="access-help">Still stuck? Email <a href="mailto:growth@fullportuniversity.com">growth@fullportuniversity.com</a> and our support team will get you in.</p>
+      <p class="access-help">Still stuck? Email <a href="mailto:growth@fullportuniversity.com">growth@fullportuniversity.com</a> — we'll get you in.</p>
     </div>
   </div>
 </section>
 
-<!-- PHASE 02 — SET UP TO TRADE -->
+<!-- PHASE 02 — GET TRADE-READY (setup + reading trades, one video) -->
 <section id="setup">
   <div class="wrap">
     <span class="phase-id">Phase 02 — Get trade-ready</span>
-    <h2 class="reveal">Set up to trade.</h2>
-    <p class="intro reveal">One video covers your whole trading setup — opening a brokerage, getting approved for options, and turning on same-day expirations. Do this before your first trade.</p>
+    <h2 class="reveal">Set up &amp; copy our trades.</h2>
+    <p class="intro reveal">One video does it all — open your brokerage, get options approval, and learn how to copy our trades. Watch it start to finish, then run the quick steps below.</p>
 
     <div class="video reveal">
-      <!-- ▼▼ PASTE VIDEO IFRAME HERE ▼▼ -->
-      <div class="ph"><div class="play"></div><div class="cap">Video · Brokerage + options approval + same-day expirations</div></div>
-      <!-- ▲▲ END VIDEO PLACEHOLDER ▲▲ -->
+      <iframe src="https://www.youtube.com/embed/0KVjDFZLMU0" title="Getting started — setup + copy our trades" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
     </div>
 
+    <span class="substep reveal">Part 1 · Get set up</span>
     <ol class="steps reveal">
-      <li><div><b>Open a brokerage</b><p>Robinhood, Webull, Wealthsimple — your choice. Pick one and create your account.</p></div></li>
-      <li><div><b>Apply for options approval</b><p>You must be approved for options before you can trade them. Apply right away so you're not stuck waiting later.</p></div></li>
-      <li><div><b>Turn on same-day expirations</b><p>On Robinhood: Settings → Investing → Options → enable "Trade on expiration date." Most other brokers have this on by default.</p></div></li>
+      <li><div><b>Open a brokerage</b><p>Robinhood, Webull, or Wealthsimple. Pick one. Make an account.</p></div></li>
+      <li><div><b>Get options approval</b><p>You can't trade options until you're approved. Apply now so you're not waiting later.</p></div></li>
     </ol>
-  </div>
-</section>
+    <p class="rule reveal"><b>One more step — not in the video:</b> turn on same-day expirations. Robinhood: Settings → Investing → Options → turn on "Trade on expiration date." Most other brokers already have it on.</p>
 
-<!-- PHASE 03 — HOW TRADES WORK -->
-<section id="how">
-  <div class="wrap">
-    <span class="phase-id">Phase 03 — The core skill</span>
-    <h2 class="reveal">How our trades work.</h2>
-    <p class="intro reveal">Every signal we post uses the same four tags. Learn these and you can follow any call without second-guessing.</p>
-
-    <div class="video reveal">
-      <!-- ▼▼ PASTE VIDEO IFRAME HERE ▼▼ -->
-      <div class="ph"><div class="play"></div><div class="cap">Video · Reading a signal: LOAD / BUY / TRIM / SELL</div></div>
-      <!-- ▲▲ END VIDEO PLACEHOLDER ▲▲ -->
-    </div>
-
+    <span class="substep divide reveal">Part 2 · Copy our trades</span>
+    <p class="intro reveal">Every trade we post uses the same 4 tags. Learn them and you can copy any call.</p>
     <div class="tagrow reveal">
-      <div class="sig"><div class="t">[LOAD]</div><p>Get the contract ready on your broker — but don't buy yet. You're prepping so you can move the moment the buy comes.</p></div>
-      <div class="sig"><div class="t">[BUY]</div><p>Enter the position. This is the green light to open the trade at the called contract.</p></div>
-      <div class="sig"><div class="t">[TRIM]</div><p>Sell a portion — usually half or more — to bank profit. If you only hold one contract, this is your sell.</p></div>
-      <div class="sig sell"><div class="t">[SELL]</div><p>Close the rest. The position is done and we're out.</p></div>
+      <div class="sig"><div class="t">[BUY]</div><p>Our entry. We post the stock, strike, expiration date, and the price we got in at. Get in as close to our price as you can.</p></div>
+      <div class="sig"><div class="t">[TRIM]</div><p>Take some profit — usually half. Try to Trim around the same time we do. Only one contract? This is your Sell.</p></div>
+      <div class="sig"><div class="t">[SELL]</div><p>Take the rest of the profit. The winner's closed — we're out.</p></div>
+      <div class="sig close"><div class="t">[CLOSE]</div><p>Cut a loss. Losses happen — it's normal. We'll tell you when to take one. Close it, or hold at your own risk.</p></div>
     </div>
-    <p class="rule reveal"><b>The golden rule:</b> trim into strength, then move your stop to breakeven so a winning trade can't turn into a loss. Most calls signal <span class="mono">[SELL]</span> well before any hard stop.</p>
+    <p class="rule reveal"><b>Entry rule:</b> get in as close to our <span class="mono">[BUY]</span> price as you can. If it's already <b>10–15% above</b> our entry, skip it and wait for the next call. Don't chase.</p>
+    <p class="rule reveal"><b>Golden rule:</b> Trim into profit, then move your stop to breakeven — so a winner can't turn into a loss.</p>
   </div>
 </section>
 
 <!-- PHASE 04 — RISK / PORTFOLIO MANAGEMENT (highlighted) -->
 <section id="risk">
   <div class="wrap">
-    <span class="phase-id">Phase 04 — Non-negotiable</span>
+    <span class="phase-id">Phase 03 — Non-negotiable</span>
     <h2 class="reveal">Risk &amp; portfolio management.</h2>
-    <p class="intro reveal">This is the most important section on the page. Good entries don't keep you in the game — sizing and risk do. Most traders don't lose because they're wrong; they lose because they're too big when they're wrong.</p>
+    <p class="intro reveal">The most important part. Good entries don't keep you alive — sizing does. Most people don't blow up because they're wrong. They blow up because they're too big when they're wrong.</p>
 
     <div class="video reveal">
       <!-- ▼▼ PASTE VIDEO IFRAME HERE ▼▼ -->
@@ -293,28 +328,28 @@
     </div>
 
     <div class="risk-wrap reveal">
-      <div class="detail"><b>Size every trade as a % of your portfolio — and assume it can go to zero.</b> Options expire worthless all the time. If a full loss on a position would hurt, you're too big.</div>
+      <div class="detail"><b>Size every trade as a % of your account — and assume it can go to $0.</b> Options die worthless all the time. If a full loss would hurt, you're too big.</div>
       <div class="risk-grid">
         <div class="risk-card">
           <h3>Position sizing</h3>
           <ul>
-            <li><b>Full</b> — 3–5% of your portfolio (default)</li>
-            <li><b>Small</b> — 1–3% when conviction is lower</li>
-            <li><b>Lotto</b> — under 1%, high risk, can go to zero</li>
-            <li>Smaller accounts scale the % up sensibly — don't chase near-worthless contracts</li>
+            <li><b>Full</b> — 3–5% of your account (default)</li>
+            <li><b>Small</b> — 1–3% when you're less sure</li>
+            <li><b>Lotto</b> — under 1%, high risk, can go to $0</li>
+            <li>Small account? Scale up a bit — but don't chase junk contracts</li>
           </ul>
         </div>
         <div class="risk-card">
-          <h3>Risk by time to expiration</h3>
+          <h3>Risk by time left</h3>
           <ul>
-            <li><b>1–7 days</b> — ultra high risk (theta, IV crush)</li>
-            <li><b>8–14 days</b> — moderate-high; consider spreads</li>
-            <li><b>15–30 days</b> — moderate, more forgiving</li>
-            <li><b>30+ days</b> — lower risk; scaling &amp; LEAPS</li>
+            <li><b>1–7 days</b> — most dangerous, loses value fast</li>
+            <li><b>8–14 days</b> — still risky</li>
+            <li><b>15–30 days</b> — more forgiving</li>
+            <li><b>30+ days</b> — lowest risk, more time to be right</li>
           </ul>
         </div>
       </div>
-      <div class="detail" style="margin-top:16px"><b>Protect what you make.</b> Trim into strength, move your stop to breakeven, and never let a green trade turn red. Survival first — the gains compound when you're still here next month.</div>
+      <div class="detail" style="margin-top:16px"><b>Protect your wins.</b> Trim into profit. Move your stop to breakeven. Never let a green trade go red. Survive first — the gains add up when you're still here next month.</div>
     </div>
   </div>
 </section>
@@ -324,7 +359,7 @@
   <div class="wrap">
     <span class="phase-id">The free course — Options from zero</span>
     <h2 class="reveal">Learn options from scratch.</h2>
-    <p class="intro reveal">A complete beginner's course, no experience needed. Set up your charts, learn to read them, understand exactly how options work, master the indicators, then load the tools we trade with. Twelve video lessons in three stages, plus a quick-answer FAQ — take them in order, and tap any stage to open the lessons.</p>
+    <p class="intro reveal">Total beginner? Start here. 3 stages: read charts, learn how options work, then the indicators we use. Short videos plus a couple of quick reads. Take them in order. Tap a stage to open it.</p>
 
     <details class="reveal" open>
       <summary><span>Stage A — Set up &amp; read the charts</span><span style="display:flex;align-items:center;gap:14px"><span class="meta">4 lessons</span><span class="pm">+</span></span></summary>
@@ -334,38 +369,38 @@
           <ul>
             <li>Setting up TradingView and laying out a clean chart the way we trade</li>
             <li>Reading candlesticks — what each candle tells you about buyers and sellers</li>
-            <li>Support, resistance, and trend — and the chart patterns that signal reversals</li>
+            <li>Support, resistance, and trend — plus the breakout pattern we trade most</li>
           </ul>
         </div>
         <div class="lesson">
           <div class="lt">Lesson 01</div><h4>Set up your charts</h4>
-          <p>Get a charting platform (TradingView), learn the interface, and choose the timeframes you'll actually trade.</p>
-          <div class="video"><!-- ▼ PASTE VIDEO IFRAME ▼ --><div class="ph"><div class="play"></div><div class="cap">Video · Chart setup</div></div><!-- ▲ END ▲ --></div>
-          <div class="goal"><span class="glabel">By the end of this lesson</span><p>You can open TradingView, lay out a clean chart, and switch between timeframes with confidence — so you're looking at the market the exact same way we do before every trade.</p></div>
+          <p>Get TradingView, learn the basics, and pick your timeframes.</p>
+          <div class="video"><iframe src="https://www.youtube.com/embed/ElBq_eGdQRM" title="Set up your charts" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe></div>
+          <div class="goal"><span class="glabel">You'll be able to</span><p>Open TradingView and set up a clean chart — the same view we use before every trade.</p></div>
         </div>
         <div class="lesson">
           <div class="lt">Lesson 02</div><h4>Understanding candlesticks</h4>
-          <p>The anatomy of a candle — body, wicks, color — and what each one is telling you about buyers and sellers.</p>
-          <div class="video"><!-- ▼ PASTE VIDEO IFRAME ▼ --><div class="ph"><div class="play"></div><div class="cap">Video · Candlesticks</div></div><!-- ▲ END ▲ --></div>
-          <div class="goal"><span class="glabel">By the end of this lesson</span><p>You can look at any single candle and read what buyers and sellers actually did — body, wicks, and color — instead of seeing random shapes on a screen.</p></div>
+          <p>What a candle's body, wicks, and color tell you about buyers and sellers.</p>
+          <div class="video"><iframe src="https://www.youtube.com/embed/ihfaYbo-kA8" title="Understanding candlesticks" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe></div>
+          <div class="goal"><span class="glabel">You'll be able to</span><p>Read any single candle and see what buyers and sellers did.</p></div>
         </div>
         <div class="lesson">
-          <div class="lt">Lesson 03</div><h4>Support, resistance &amp; trend</h4>
-          <p>Mark the levels price reacts to, read volume, and identify whether a stock is trending up, down, or sideways.</p>
-          <div class="video"><!-- ▼ PASTE VIDEO IFRAME ▼ --><div class="ph"><div class="play"></div><div class="cap">Video · Support, resistance &amp; trend</div></div><!-- ▲ END ▲ --></div>
-          <div class="goal"><span class="glabel">By the end of this lesson</span><p>You can mark support and resistance on any chart and name the current trend — the foundation every entry and exit is built on.</p></div>
+          <div class="lt">Lesson 03</div><h4>Support, Resistance &amp; Trend</h4>
+          <p>Mark the levels price reacts to, and spot if a stock is going up, down, or sideways.</p>
+          <div class="video"><iframe src="https://www.youtube.com/embed/skd1oUs2yoE" title="Support, Resistance &amp; Trend" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe></div>
+          <div class="goal"><span class="glabel">You'll be able to</span><p>Mark support and resistance and name the trend.</p></div>
         </div>
         <div class="lesson">
-          <div class="lt">Lesson 04</div><h4>Chart patterns</h4>
-          <p>The reversal patterns to know by heart — double tops &amp; bottoms, head &amp; shoulders, wedges, and triangles.</p>
-          <div class="video"><!-- ▼ PASTE VIDEO IFRAME ▼ --><div class="ph"><div class="play"></div><div class="cap">Video · Chart patterns</div></div><!-- ▲ END ▲ --></div>
-          <div class="goal"><span class="glabel">By the end of this lesson</span><p>You can spot the major reversal patterns as they form and understand what each one suggests about where price may head next.</p></div>
+          <div class="lt">Lesson 04</div><h4>Textbook #1 Chart Pattern</h4>
+          <p>Our go-to setup: price breaks past a key level, pulls back to re-test it, then keeps going the same way. Break → re-test → continuation.</p>
+          <div class="video"><iframe src="https://www.youtube.com/embed/QS105demFvA" title="Textbook #1 Chart Pattern" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe></div>
+          <div class="goal"><span class="glabel">You'll be able to</span><p>Spot a breakout, wait for the re-test, and trade the continuation.</p></div>
         </div>
       </div>
     </details>
 
     <details class="reveal">
-      <summary><span>Stage B — How options actually work</span><span style="display:flex;align-items:center;gap:14px"><span class="meta">4 lessons</span><span class="pm">+</span></span></summary>
+      <summary><span>Stage B — How options actually work</span><span style="display:flex;align-items:center;gap:14px"><span class="meta">1 video + quick read</span><span class="pm">+</span></span></summary>
       <div class="body">
         <div class="covers">
           <span class="clabel">What this section covers</span>
@@ -376,80 +411,109 @@
           </ul>
         </div>
         <div class="lesson">
-          <div class="lt">Lesson 05</div><h4>Options vs stocks</h4>
-          <p>What an option actually is, and why you trade the contract itself rather than buying 100 shares.</p>
-          <div class="video"><!-- ▼ PASTE VIDEO IFRAME ▼ --><div class="ph"><div class="play"></div><div class="cap">Video · What is an option</div></div><!-- ▲ END ▲ --></div>
-          <div class="goal"><span class="glabel">By the end of this lesson</span><p>You understand what an option contract is, how it's different from owning shares, and why a smaller amount of money can control a larger move — along with the added risk that brings.</p></div>
+          <div class="lt">Lesson 05</div><h4>Options vs Stocks + Calls &amp; Puts</h4>
+          <p>What an option is, why you trade the contract instead of 100 shares, and the difference between Calls and Puts.</p>
+          <div class="video"><iframe src="https://www.youtube.com/embed/zX5mAnF3vJ8" title="Options vs Stocks + Calls &amp; Puts" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe></div>
+          <div class="goal"><span class="glabel">You'll be able to</span><p>Explain options vs stocks, and know when a trade needs a Call or a Put.</p></div>
         </div>
         <div class="lesson">
-          <div class="lt">Lesson 06</div><h4>Calls &amp; puts</h4>
-          <p>Calls are a bet a stock goes up; puts are a bet it goes down. Learn when each one is the right tool.</p>
-          <div class="video"><!-- ▼ PASTE VIDEO IFRAME ▼ --><div class="ph"><div class="play"></div><div class="cap">Video · Calls &amp; puts</div></div><!-- ▲ END ▲ --></div>
-          <div class="goal"><span class="glabel">By the end of this lesson</span><p>You know instantly whether a trade idea calls for a call or a put, and you understand the directional bet you're making either way.</p></div>
-        </div>
-        <div class="lesson">
-          <div class="lt">Lesson 07</div><h4>Reading an options contract</h4>
-          <p>Break down a full call-out — <span class="mono">TSLA 3/8 $180 Call @ 2.00</span> — into stock, expiration, strike, type, and price.</p>
-          <div class="video"><!-- ▼ PASTE VIDEO IFRAME ▼ --><div class="ph"><div class="play"></div><div class="cap">Video · Reading a contract</div></div><!-- ▲ END ▲ --></div>
-          <div class="goal"><span class="glabel">By the end of this lesson</span><p>You can read any contract string at a glance and know exactly what it means — including why a <span class="mono">2.00</span> premium costs <span class="mono">$200</span>, since each contract controls 100 shares.</p></div>
-        </div>
-        <div class="lesson">
-          <div class="lt">Lesson 08</div><h4>What moves an option's price</h4>
-          <p>Premium, in- vs out-of-the-money, expiration and time decay (theta), and why options lose value over time.</p>
-          <div class="video"><!-- ▼ PASTE VIDEO IFRAME ▼ --><div class="ph"><div class="play"></div><div class="cap">Video · Pricing &amp; time decay</div></div><!-- ▲ END ▲ --></div>
-          <div class="goal"><span class="glabel">By the end of this lesson</span><p>You understand why an option gains or loses value — direction, time decay, and where the strike sits — so a moving contract price never catches you off guard again.</p></div>
+          <div class="lt">Quick read · No video</div><h4>The rest of the basics</h4>
+          <p>Short and simple. Read these once and the foundation's yours.</p>
+          <div class="explain">
+            <div class="ex-card">
+              <span class="ex-k">Calls &amp; Puts</span>
+              <p>A <b>Call</b> makes money when the stock goes up. A <b>Put</b> makes money when it goes down. Every options trade is one or the other.</p>
+            </div>
+            <div class="ex-card">
+              <span class="ex-k">Reading a Contract</span>
+              <p>Take <span class="mono">TSLA 3/8 $180 Call @ 2.00</span> — stock <b>TSLA</b>, expires <b>3/8</b>, strike <b>$180</b>, type <b>Call</b>, price <b>2.00</b>. One contract = 100 shares, so <span class="mono">2.00</span> = <span class="mono">$200</span>.</p>
+            </div>
+            <div class="ex-card">
+              <span class="ex-k">What Moves the Price</span>
+              <p>Three things: <b>direction</b> (does the stock go your way), <b>time</b> (options lose value as expiration gets closer), and <b>the strike</b> (how far it sits from the stock price).</p>
+            </div>
+          </div>
         </div>
       </div>
     </details>
 
     <details class="reveal">
-      <summary><span>Stage C — Indicators &amp; your toolkit</span><span style="display:flex;align-items:center;gap:14px"><span class="meta">4 lessons</span><span class="pm">+</span></span></summary>
+      <summary><span>Stage C — The core indicators</span><span style="display:flex;align-items:center;gap:14px"><span class="meta">3 lessons</span><span class="pm">+</span></span></summary>
       <div class="body">
         <div class="covers">
           <span class="clabel">What this section covers</span>
           <ul>
             <li>The three core indicators — RSI, Bollinger Bands, and MACD — one lesson each</li>
             <li>What each indicator signals and how to read it without overcomplicating things</li>
-            <li>Loading our exact FPU TradingView stack and watchlist so your charts match ours</li>
+            <li>Our full FPU indicator setup gets its own section right after the course</li>
           </ul>
         </div>
         <div class="lesson">
-          <div class="lt">Lesson 09</div><h4>RSI &amp; overbought / oversold</h4>
-          <p>How to tell when a stock has stretched too far up or down, and what that means for timing.</p>
-          <div class="video"><!-- ▼ PASTE VIDEO IFRAME ▼ --><div class="ph"><div class="play"></div><div class="cap">Video · RSI</div></div><!-- ▲ END ▲ --></div>
-          <div class="goal"><span class="glabel">By the end of this lesson</span><p>You can read RSI to judge whether a move is overextended, helping you avoid chasing and time entries and exits with more patience.</p></div>
+          <div class="lt">Lesson 09</div><h4>RSI &amp; Overbought / Oversold</h4>
+          <p>How do you know when a stock is "too high" or "too low"? RSI flags when it's overbought or oversold, so you can time better entries and exits.</p>
+          <div class="video"><iframe src="https://www.youtube.com/embed/DlqOuyx6tPQ" title="RSI &amp; Overbought / Oversold" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe></div>
+          <div class="goal"><span class="glabel">You'll be able to</span><p>Use RSI to avoid chasing and time your entries better.</p></div>
         </div>
         <div class="lesson">
           <div class="lt">Lesson 10</div><h4>Bollinger Bands</h4>
-          <p>Using Bollinger Bands to gauge volatility and see how far price has stretched from its average.</p>
-          <div class="video"><!-- ▼ PASTE VIDEO IFRAME ▼ --><div class="ph"><div class="play"></div><div class="cap">Video · Bollinger Bands</div></div><!-- ▲ END ▲ --></div>
-          <div class="goal"><span class="glabel">By the end of this lesson</span><p>You can read Bollinger Bands to spot when price is stretched or coiling in a squeeze, and what each tends to lead to next.</p></div>
+          <p>See a stock's normal price range at a glance — and spot the outliers when price stretches too far outside it.</p>
+          <div class="video"><iframe src="https://www.youtube.com/embed/sHYNAHnhEXY" title="Bollinger Bands" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe></div>
+          <div class="goal"><span class="glabel">You'll be able to</span><p>Read Bollinger Bands to spot when price is stretched or coiling.</p></div>
         </div>
         <div class="lesson">
           <div class="lt">Lesson 11</div><h4>MACD</h4>
-          <p>MACD for momentum and trend — confirming the direction of a move before you commit to it.</p>
-          <div class="video"><!-- ▼ PASTE VIDEO IFRAME ▼ --><div class="ph"><div class="play"></div><div class="cap">Video · MACD</div></div><!-- ▲ END ▲ --></div>
-          <div class="goal"><span class="glabel">By the end of this lesson</span><p>You can read MACD to gauge momentum and confirm trend direction, giving you more conviction before entering a trade.</p></div>
-        </div>
-        <div class="lesson">
-          <div class="lt">Lesson 12</div><h4>Your FPU indicator setup</h4>
-          <p>Load our exact TradingView stack — Liquidity Levels, Orderblocks, Smart Money Concepts, and more — plus the watchlist.</p>
-          <div class="video"><!-- ▼ PASTE VIDEO IFRAME ▼ --><div class="ph"><div class="play"></div><div class="cap">Video · FPU indicator setup</div></div><!-- ▲ END ▲ --></div>
-          <div class="goal"><span class="glabel">By the end of this lesson</span><p>Your TradingView is loaded with our exact indicators and watchlist, so your charts mirror ours and you're fully ready to follow along with live calls.</p></div>
+          <p>MACD is all about momentum. The trend is your friend — follow it with MACD and trade your direction with more conviction.</p>
+          <div class="video"><iframe src="https://www.youtube.com/embed/WNFiHfuPMgU" title="MACD" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe></div>
+          <div class="goal"><span class="glabel">You'll be able to</span><p>Read MACD to confirm momentum and trend.</p></div>
         </div>
       </div>
     </details>
+  </div>
+</section>
 
-    <details class="reveal">
-      <summary><span>Course FAQ — quick answers</span><span style="display:flex;align-items:center;gap:14px"><span class="meta">5 questions</span><span class="pm">+</span></span></summary>
-      <div class="body">
-        <div class="faq-q"><h4>What's the difference between a stock and an option?</h4><p>A stock is ownership in a company. An option is a contract tied to that stock's price — you trade the contract itself, not the shares. That's how a smaller amount of money can control a bigger move, and also why options carry more risk.</p></div>
-        <div class="faq-q"><h4>What's a call and what's a put?</h4><p>A <b>call</b> profits when the stock goes up. A <b>put</b> profits when it goes down. That's the core of every directional options trade.</p></div>
-        <div class="faq-q"><h4>How do I read something like "TSLA 3/8 $180 Call @ 2.00"?</h4><p>Stock <span class="mono">TSLA</span>, expiration <span class="mono">3/8</span>, strike <span class="mono">$180</span>, type <span class="mono">Call</span>, price <span class="mono">2.00</span>. Each contract controls 100 shares, so <span class="mono">2.00</span> means <span class="mono">$200</span> per contract.</p></div>
-        <div class="faq-q"><h4>Do I need to apply for options?</h4><p>Yes. When you open a brokerage you have to apply for and be approved for options trading before you can trade them — so do it early so you're not stuck waiting later.</p></div>
-        <div class="faq-q"><h4>Can I day-trade with less than $25,000?</h4><p>Yes — switch to a <b>cash account</b> to sidestep the PDT rule. You're then limited to your settled cash each day, which settles back overnight after you close a trade.</p></div>
+<!-- LOAD OUR INDICATORS -->
+<section id="indicators">
+  <div class="wrap">
+    <span class="phase-id">Final setup — Match our charts</span>
+    <h2 class="reveal">Load our indicators.</h2>
+    <p class="intro reveal">Last step before you trade: make your TradingView look like ours. We each trade with our own toolkit — load whichever trader you want to follow, or both. To add one: open its link, tap <b>Add to favorites</b>, then turn it on from the indicators menu at the top of your chart.</p>
+
+    <span class="substep reveal">FPU.J's setup · Smart money</span>
+    <p class="detail reveal">Justin trades three smart-money tools that show where the big money is active.</p>
+    <div class="ind-grid reveal">
+      <div class="ind">
+        <div class="nm">Liquidity Levels</div>
+        <p>Shows the price levels where traders' stop-losses sit. Big money targets these spots to fuel the next move.</p>
+        <a class="tvbtn" href="https://www.tradingview.com/script/5QE1nSme-Liquidity-Levels-TradeTips/" target="_blank" rel="noopener">Add on TradingView →</a>
       </div>
-    </details>
+      <div class="ind">
+        <div class="nm">Orderblocks</div>
+        <p>Marks the zones where large firms placed big orders. Price often returns to these zones before moving again.</p>
+        <a class="tvbtn" href="https://www.tradingview.com/script/8ULzuQSa-Orderblocks-TradeTips/" target="_blank" rel="noopener">Add on TradingView →</a>
+      </div>
+      <div class="ind">
+        <div class="nm">Fair Value Gaps</div>
+        <p>Spots the gap left by a fast move — a big candle between two small ones. Price tends to come back and fill it.</p>
+        <a class="tvbtn" href="https://www.tradingview.com/script/yEmXtlUy-Fair-Value-Gaps-TradeTips/" target="_blank" rel="noopener">Add on TradingView →</a>
+      </div>
+    </div>
+    <p class="detail reveal" style="margin-top:14px"><b>New to these?</b> The free indicator ebook explains all three in plain English.</p>
+    <!-- When live: change <span> to <a href="EBOOK_URL" target="_blank" rel="noopener"> and remove is-soon + .soon-pill -->
+    <span class="pbtn alt is-soon auto reveal" role="link" aria-disabled="true" style="margin-top:10px">Indicator ebook (PDF) <span class="soon-pill">Coming soon</span></span>
+
+    <span class="substep divide reveal">FPU.Kenny's setup · Everyday</span>
+    <p class="detail reveal">Kenny runs a different mix. Search each name in TradingView's indicator search and add it.</p>
+    <div class="ind-grid reveal">
+      <div class="ind"><div class="nm">Smart Money Concepts</div><p>by LuxAlgo — maps market structure, order blocks, and liquidity in one tool.</p></div>
+      <div class="ind"><div class="nm">Nadaraya-Watson</div><p>by LuxAlgo — a smooth band around price that flags dynamic support and resistance.</p></div>
+      <div class="ind"><div class="nm">Visible Range Volume Profile</div><p>Shows the prices where the most shares traded — where price is "heavy."</p></div>
+      <div class="ind"><div class="nm">Stochastic RSI</div><p>A faster overbought / oversold read for timing.</p></div>
+    </div>
+    <p class="detail reveal" style="margin-top:14px"><b>Futures only:</b> Kenny adds <b>SuperTrend AI</b> by LuxAlgo for trend direction.</p>
+
+    <span class="substep divide reveal">The watchlist</span>
+    <p class="detail reveal">Load the same names we watch every day so you're looking at the same charts we are.</p>
+    <a class="pbtn primary auto reveal" href="https://www.tradingview.com/watchlists/23775483/" target="_blank" rel="noopener" style="margin-top:10px">Open the FPU watchlist →</a>
   </div>
 </section>
 
@@ -458,8 +522,8 @@
   <div class="wrap">
     <div class="milestone reveal">
       <div class="k">🔑</div>
-      <h3>You're ready to follow your first trade.</h3>
-      <p>Connected, set up, and through the core lessons. Follow calls live — start small, respect your risk, and ask questions in the server.</p>
+      <h3>You're ready for your first trade.</h3>
+      <p>You're connected, set up, and trained. Now follow calls live. Start small, respect your risk, and ask questions in the server.</p>
     </div>
   </div>
 </section>
@@ -469,23 +533,11 @@
   <div class="wrap">
     <span class="phase-id" style="color:var(--x)">Optional — Bonus material</span>
     <h2 class="reveal">Futures trading.</h2>
-    <p class="intro reveal">Supplemental to the core course — work through it on your own time once you're comfortable with options. Futures use a different broker and a different mindset, so it's kept separate on purpose.</p>
+    <p class="intro reveal">Extra, not required. Do this on your own time once you're comfortable with options. Futures use a different broker and mindset, so we keep it separate.</p>
 
     <div class="video reveal">
-      <!-- ▼▼ PASTE VIDEO IFRAME HERE ▼▼ -->
-      <div class="ph"><div class="play"></div><div class="cap">Video · Intro to futures (bonus)</div></div>
-      <!-- ▲▲ END VIDEO PLACEHOLDER ▲▲ -->
+      <iframe src="https://www.youtube.com/embed/raP77d4HIh8" title="Intro to futures (bonus)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
     </div>
-
-    <details class="reveal">
-      <summary><span>What the futures bonus covers</span><span style="display:flex;align-items:center;gap:14px"><span class="meta">Self-paced</span><span class="pm">+</span></span></summary>
-      <div class="body"><ul>
-        <li><b>What futures are</b> — ~23 hours a day, no strike price, no time decay — just up or down.</li>
-        <li><b>The broker</b> — Tradovate for execution, connected through TradingView.</li>
-        <li><b>Self-fund vs funded accounts</b> — trade your own capital, or pass an evaluation to trade a firm's.</li>
-        <li><b>Prop-firm rules made simple</b> — drawdown, consistency, and the free rules guide.</li>
-      </ul></div>
-    </details>
   </div>
 </section>
 
@@ -496,24 +548,77 @@
     <h2 class="reveal">The non-negotiables.</h2>
     <p class="intro reveal">Break these and the system stops working. They're not optional.</p>
     <div class="nono reveal">
-      <div><span class="x">✗</span><b>No risk plan, no trade.</b><p>Know your entry, your trim, and your stop before you click buy.</p></div>
-      <div><span class="x">✗</span><b>Never size what you can't lose.</b><p>Options can go to zero. Size every position so a full loss won't hurt you.</p></div>
+      <div><span class="x">✗</span><b>No risk plan, no trade.</b><p>Know your entry, your Trim, and your stop before you click Buy.</p></div>
+      <div><span class="x">✗</span><b>Never bet what you can't lose.</b><p>Options can go to $0. Size every trade so a full loss won't hurt.</p></div>
       <div><span class="x">✗</span><b>Admins never DM you first.</b><p>Any "copy trader" or investment DM is a scam. Verify names inside the server only.</p></div>
     </div>
   </div>
 </section>
 
-<!-- MENTORSHIP -->
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <span class="phase-id">Got questions?</span>
+    <h2 class="reveal">FAQ.</h2>
+    <p class="intro reveal">Quick answers to what new members ask most. Tap a group to open it.</p>
+
+    <details class="reveal" open>
+      <summary><span>Options basics</span><span style="display:flex;align-items:center;gap:14px"><span class="meta">3 questions</span><span class="pm">+</span></span></summary>
+      <div class="body">
+        <div class="faq-q"><h4>Stocks vs options — what's the difference?</h4><p>A stock is owning part of a company. An option is a contract tied to that stock's price — you trade the contract, not the shares. One Call contract is the <i>right</i> to buy 100 shares at a set price, but you never actually have to. You buy contracts cheap and sell them higher.</p></div>
+        <div class="faq-q"><h4>What's a Call and a Put?</h4><p>A <b>Call</b> bets the stock goes up. A <b>Put</b> bets it goes down. Example: <span class="mono">TSLA 3/8 $180 Call</span> bets Tesla is above $180 by March 8.</p></div>
+        <div class="faq-q"><h4>What do the parts of a contract mean?</h4><p>Format: <span class="mono">[Stock] [Expiration] $[Strike] [Call/Put] @ [Price]</span>. Example: <span class="mono">TSLA 3/8 $180 Call @ 2.00</span> — stock TSLA, expires 3/8, strike $180, a Call, price 2.00. Each contract = 100 shares, so <span class="mono">2.00</span> = <span class="mono">$200</span>.</p></div>
+      </div>
+    </details>
+
+    <details class="reveal">
+      <summary><span>Following our signals</span><span style="display:flex;align-items:center;gap:14px"><span class="meta">2 questions</span><span class="pm">+</span></span></summary>
+      <div class="body">
+        <div class="faq-q"><h4>How do I follow a signal?</h4><p>First, know the parts of a contract (above) and how to find them on your broker. A signal looks like <span class="mono">[BUY] TSLA 3/8 $180 Call @ 2.00</span>. Then follow the tags: <b>[BUY]</b> buy it · <b>[TRIM]</b> sell part to bank profit · <b>[SELL]</b> sell the rest · <b>[CLOSE]</b> cut a loss.</p></div>
+        <div class="faq-q"><h4>TRIM vs SELL — what's the difference?</h4><p><b>TRIM</b> = sell some (usually half) to lock in profit while keeping a little upside. <b>SELL</b> = sell it all, you're fully out. Example: hold 5 contracts → a TRIM might sell 1–2; a SELL closes all 5. Only have 1 contract? Treat the first TRIM as your sell.</p></div>
+      </div>
+    </details>
+
+    <details class="reveal">
+      <summary><span>Account setup &amp; rules</span><span style="display:flex;align-items:center;gap:14px"><span class="meta">3 questions</span><span class="pm">+</span></span></summary>
+      <div class="body">
+        <div class="faq-q"><h4>Do I need to apply for options?</h4><p>Yes. Apply when you open your brokerage — you can't trade options until you're approved. Do it early so you're not waiting.</p></div>
+        <div class="faq-q"><h4>I can't find today's (same-day) expiration on Robinhood</h4><p>Turn it on: <span class="mono">Settings → Investing → Options → enable "Trade on expiration date."</span> Most other brokers already have it on.</p></div>
+        <div class="faq-q"><h4>Can I day-trade with under $25,000?</h4><p>Yes — switch to a <b>cash account</b> to skip the day-trading limit (the "PDT rule"). You trade with <b>settled cash</b> — what you have at the open. Sell a position to free that cash; it settles back overnight.</p></div>
+      </div>
+    </details>
+
+    <details class="reveal">
+      <summary><span>Risk &amp; sizing</span><span style="display:flex;align-items:center;gap:14px"><span class="meta">3 questions</span><span class="pm">+</span></span></summary>
+      <div class="body">
+        <div class="faq-q"><h4>How much per trade? What's a "lotto"?</h4><p>Size by % of your account: <b>Full</b> 3–5%, <b>Small</b> 1–3%, <b>Lotto</b> under 1% (high risk, can go to $0). Small account? You may need a higher % — don't chase $0.05 contracts just to stay "lotto" size; they rarely hit.</p></div>
+        <div class="faq-q"><h4>What's your take-profit / stop-loss plan?</h4><p>Manual trailing take-profit: enter with a few contracts, <b>[TRIM]</b> about half at ~20–40% profit, then move your stop to breakeven so it can't turn into a loss. Hard stop around -50%, but we usually <span class="mono">[SELL]</span> well before that.</p></div>
+        <div class="faq-q"><h4>How does time-to-expiration change the risk?</h4><p>Less time = more risk. <b>1–7 days</b> ultra-high (loses value fast) · <b>8–14</b> high · <b>15–30</b> moderate · <b>31–60</b> low-moderate · <b>60+</b> lowest (LEAPS, long-term).</p></div>
+      </div>
+    </details>
+
+    <details class="reveal">
+      <summary><span>Staying safe from scams</span><span style="display:flex;align-items:center;gap:14px"><span class="meta">2 questions</span><span class="pm">+</span></span></summary>
+      <div class="body">
+        <div class="faq-q"><h4>Will an admin ever DM me?</h4><p>No. We never DM you first, and we never run a "copy trader" or investment fund. Any DM like that is a <b>scam</b>. Tip: turn off friend requests. To verify someone, click our name <i>inside</i> the Discord and message from there. Check usernames exactly — it's "traderkenny," not "_traderkenny" or "traderkennyy."</p></div>
+        <div class="faq-q"><h4>Someone's DMing me pretending to be Kenny — is it real?</h4><p>Almost never. Scammers copy the name and photo, act friendly, then send you to a fake site (never Whop.com). Only trust a chat you start yourself by clicking the real name inside our Discord.</p></div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- MENTORSHIP FUNNEL — archived; hidden until the new funnel is built. Re-enable by uncommenting and adding the booking link.
 <section id="mentorship">
   <div class="wrap">
     <div class="ment reveal">
       <span class="eyebrow">Optional — Go further</span>
       <h2>Want 1-on-1 mentorship?</h2>
-      <p>If you'd rather have hands-on guidance — your trades reviewed, your plan built with you, and direct accountability — we offer personal 1-on-1 mentorship. Book a call and we'll see if it's the right fit.</p>
-      <a class="btn gold" href="REPLACE_WITH_BOOKING_LINK">Book a call <span class="a">→</span></a>
+      <p>Want your trades reviewed and a plan built with you? We offer 1-on-1 mentorship. Book a call and we'll see if it's a fit.</p>
+      <a class="btn gold" href="REPLACE_WITH_BOOKING_LINK">Book a call <span class="a">&#8594;</span></a>
     </div>
   </div>
 </section>
+-->
 
 <!-- FOOTER CTA -->
 <section class="foot-cta" id="join">
@@ -521,7 +626,10 @@
     <span class="eyebrow">When you're set up</span>
     <h2>Head into the server.</h2>
     <p>The signals, the community, and the live action are waiting.</p>
-    <a class="btn accent" href="REPLACE_WITH_FANBASIS_LINK">Open the Discord <span class="a">→</span></a>
+    <div class="connect" style="max-width:520px;margin:0 auto;text-align:left">
+      <a class="pbtn primary" href="https://www.fanbasis.com/portal/general/discord" target="_blank" rel="noopener">My Fanbasis membership →</a>
+      <a class="pbtn alt" href="https://whop.com/joined/fullportuniversity/click-here-to-join-discord-as-a-vip-member-xd8mZNLDg4EoGc/app/" target="_blank" rel="noopener">My Whop membership →</a>
+    </div>
   </div>
 </section>
 

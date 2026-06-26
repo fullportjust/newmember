@@ -66,31 +66,25 @@
   .hero .tag{margin-top:18px;color:var(--muted);font-size:1.05rem;border-left:2px solid var(--accent);padding-left:14px}
   .hero h1{font-size:clamp(2.6rem,7vw,4.4rem);margin-top:12px}
   .hero .lead{margin-top:26px;max-width:60ch;color:var(--muted);font-size:1.08rem}
-  /* hero mentorship CTA */
-  .ment-cta{display:flex;align-items:center;justify-content:space-between;gap:22px;margin-top:34px;padding:24px 28px;border:1px solid var(--gold);border-radius:16px;background:linear-gradient(180deg,color-mix(in srgb,var(--gold) 11%,var(--surface)),var(--surface));transition:transform .15s}
-  .ment-cta:hover{transform:translateY(-2px)}
-  .ment-cta-k{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px}
-  .ment-cta b{font-size:1.2rem;font-weight:700;display:block;letter-spacing:-.01em}
-  .ment-cta p{color:var(--muted);font-size:.94rem;margin-top:5px;max-width:46ch}
-  .ment-cta .arr{font-size:1.7rem;color:var(--gold);flex:none;transition:transform .15s}
-  .ment-cta:hover .arr{transform:translateX(4px)}
-  @media (max-width:560px){.ment-cta{flex-direction:column;align-items:flex-start;gap:14px}}
   /* "watch next" — secondary video link */
   .more-vid{display:inline-flex;align-items:center;gap:10px;margin-top:18px;padding:11px 18px;border:1px solid var(--line);border-left:2px solid var(--accent);border-radius:0 10px 10px 0;color:var(--muted);font-size:.92rem;transition:border-color .2s,color .2s}
   .more-vid:hover{border-color:var(--accent);color:var(--text)}
   .more-vid .k{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
   .more-vid .a{transition:transform .15s}
   .more-vid:hover .a{transform:translateX(3px)}
-  /* big intro CTA — free masterclass replay */
-  .class-cta{display:block;margin-top:36px;padding:28px 30px;border:1px solid var(--accent-dim);border-radius:18px;background:linear-gradient(180deg,color-mix(in srgb,var(--accent) 13%,var(--surface)),var(--surface));transition:transform .15s}
-  .class-cta:hover{transform:translateY(-2px)}
+  /* big intro CTA — free masterclass replay (+ 1-on-1 mentorship) */
+  .class-cta{margin-top:36px;padding:28px 30px;border:1px solid var(--accent-dim);border-radius:18px;background:linear-gradient(180deg,color-mix(in srgb,var(--accent) 13%,var(--surface)),var(--surface))}
   .class-cta .badge{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent-dim);border-radius:999px;padding:5px 12px;margin-bottom:14px}
   .class-cta b{display:block;font-size:clamp(1.4rem,3.4vw,1.95rem);font-weight:700;letter-spacing:-.02em;line-height:1.15;color:var(--text)}
   .class-cta p{color:var(--muted);font-size:1rem;margin-top:10px;max-width:54ch}
-  .class-cta .go{display:inline-flex;align-items:center;gap:10px;margin-top:20px;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:.92rem;padding:15px 28px;border-radius:11px;background:var(--accent);color:#04130C}
+  .cta-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:22px}
+  .class-cta .go{display:inline-flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:.92rem;padding:15px 28px;border-radius:11px;background:var(--accent);color:#04130C;transition:transform .15s,filter .15s}
   [data-theme="light"] .class-cta .go{color:#fff}
-  .class-cta .go .a{transition:transform .15s}
-  .class-cta:hover .go .a{transform:translateX(4px)}
+  .class-cta .go:hover{transform:translateY(-2px);filter:brightness(1.07)}
+  .class-cta .go-alt{display:inline-flex;align-items:center;gap:9px;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:.86rem;padding:14px 22px;border-radius:11px;border:1px solid var(--gold);color:var(--gold);transition:transform .15s,background .15s}
+  .class-cta .go-alt:hover{transform:translateY(-2px);background:color-mix(in srgb,var(--gold) 12%,transparent)}
+  .class-cta .a{transition:transform .15s}
+  .class-cta .go:hover .a,.class-cta .go-alt:hover .a{transform:translateX(4px)}
 
   section{padding:56px 0;border-top:1px solid var(--line)}
   .phase-id{font-family:'JetBrains Mono',monospace;font-size:.74rem;letter-spacing:.18em;color:var(--accent);text-transform:uppercase}
@@ -265,20 +259,15 @@
     <p class="tag">/ Your first day, laid out step by step.</p>
     <p class="lead"><b>Full Port University — FPU for short — is an options and futures trading community.</b> We post live trades in our Discord, teach you from scratch, and keep your risk tight. Learn while you earn — no experience needed.</p>
     <p class="lead">You're in. Now get set up the right way. Work top to bottom — each step has a short video. <b>Don't trade until you finish.</b></p>
-    <a class="class-cta reveal" href="https://join.fullportuniversity.com/freeclass" target="_blank" rel="noopener">
+    <div class="class-cta reveal">
       <span class="badge">Free Masterclass · Replay</span>
       <b>Start here: watch my full system, in-depth.</b>
-      <p>A replay of one of our most recent masterclasses — I walk through my entire trading system from top to bottom, completely free. The best place to begin before you trade.</p>
-      <span class="go">Watch the free class <span class="a">&#8594;</span></span>
-    </a>
-    <a class="ment-cta reveal" href="https://calendly.com/d/cxmn-djx-py5/fullportuniversity-enrollment-session-enrollment" target="_blank" rel="noopener">
-      <div>
-        <span class="ment-cta-k">Optional · 1-on-1 Mentorship</span>
-        <b>Want the full course + hands-on help?</b>
-        <p>This onboarding is the basics. For the full course with your trades reviewed 1-on-1, book a call.</p>
+      <p>A replay of one of our most recent masterclasses — I walk through my entire trading system from top to bottom, completely free. The best place to begin before you trade. Want hands-on help too? You can book a 1-on-1 call right here.</p>
+      <div class="cta-actions">
+        <a class="go" href="https://join.fullportuniversity.com/freeclass" target="_blank" rel="noopener">Watch the free class <span class="a">&#8594;</span></a>
+        <a class="go-alt" href="https://calendly.com/d/cxmn-djx-py5/fullportuniversity-enrollment-session-enrollment" target="_blank" rel="noopener">Prefer 1-on-1? Book a call <span class="a">&#8594;</span></a>
       </div>
-      <span class="arr">&#8594;</span>
-    </a>
+    </div>
   </div>
 </header>
 

@@ -66,16 +66,7 @@
   .hero .tag{margin-top:18px;color:var(--muted);font-size:1.05rem;border-left:2px solid var(--accent);padding-left:14px}
   .hero h1{font-size:clamp(2.6rem,7vw,4.4rem);margin-top:12px}
   .hero .lead{margin-top:26px;max-width:60ch;color:var(--muted);font-size:1.08rem}
-  .stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:40px}
-  .stat{flex:1;min-width:140px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
-  .stat .num{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.8rem;color:var(--accent);line-height:1}
-  .stat .lbl{color:var(--muted);font-size:.82rem;margin-top:8px}
-  .ment-link{display:inline-flex;align-items:center;gap:10px;margin-top:24px;padding:11px 18px;border:1px solid var(--line);border-left:2px solid var(--gold);border-radius:0 10px 10px 0;color:var(--muted);font-size:.92rem;transition:border-color .2s,color .2s}
-  .ment-link:hover{border-color:var(--gold);color:var(--text)}
-  .ment-link span{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
-  .ment-link .a{margin-left:2px;transition:transform .15s}
-  .ment-link:hover .a{transform:translateX(3px)}
-  /* bigger hero mentorship CTA */
+  /* hero mentorship CTA */
   .ment-cta{display:flex;align-items:center;justify-content:space-between;gap:22px;margin-top:34px;padding:24px 28px;border:1px solid var(--gold);border-radius:16px;background:linear-gradient(180deg,color-mix(in srgb,var(--gold) 11%,var(--surface)),var(--surface));transition:transform .15s}
   .ment-cta:hover{transform:translateY(-2px)}
   .ment-cta-k{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px}
@@ -122,8 +113,6 @@
   [data-theme="light"] .pbtn.primary{color:#fff}
   .pbtn.primary:hover{transform:translateY(-2px);filter:brightness(1.07)}
   .pbtn.alt:hover{transform:translateY(-2px);border-color:var(--accent);color:var(--accent)}
-  .support{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 20px;color:var(--muted);font-size:.92rem}
-  .support a{color:var(--accent);font-weight:600}
 
   /* steps inside a video section */
   ol.steps{list-style:none;counter-reset:s;margin-top:6px}
@@ -223,8 +212,6 @@
   .ment p{color:var(--muted);max-width:52ch;margin:0 auto 24px}
   .btn{display:inline-flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:.9rem;padding:16px 30px;border-radius:11px;transition:transform .15s,filter .15s}
   .btn.gold{background:var(--gold);color:#1a1206}
-  .btn.accent{background:var(--accent);color:#04130C}
-  [data-theme="light"] .btn.accent{color:#fff}
   .btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
   .btn .a{transition:transform .15s}.btn:hover .a{transform:translateX(3px)}
 
@@ -318,15 +305,7 @@
       <li><div><b>Get options approval</b><p>You can't trade options until you're approved. Apply now so you're not waiting later.</p></div></li>
     </ol>
     <p class="rule reveal"><b>One more step — not in the video:</b> turn on same-day expirations. Robinhood: Settings → Investing → Options → turn on "Trade on expiration date." Most other brokers already have it on.</p>
-
-    <details class="reveal" style="margin-top:18px">
-      <summary><span>Account setup — common questions</span><span style="display:flex;align-items:center;gap:14px"><span class="meta">3 questions</span><span class="pm">+</span></span></summary>
-      <div class="body">
-        <div class="faq-q"><h4>Do I need to apply for options?</h4><p>Yes. Apply when you open your brokerage — you can't trade options until you're approved. Do it early so you're not waiting.</p></div>
-        <div class="faq-q"><h4>I can't find today's (same-day) expiration on Robinhood</h4><p>Turn it on: <span class="mono">Settings → Investing → Options → enable "Trade on expiration date."</span> Most other brokers already have it on.</p></div>
-        <div class="faq-q"><h4>Can I day-trade with under $25,000?</h4><p>Yes — switch to a <b>cash account</b> to skip the day-trading limit (the "PDT rule"). You trade with <b>settled cash</b> — what you have at the open. Sell a position to free that cash; it settles back overnight.</p></div>
-      </div>
-    </details>
+    <p class="rule reveal"><b>Under $25k and want to day-trade?</b> Switch to a <b>cash account</b> to skip the day-trading limit (the "PDT rule"). You trade with settled cash — sell a position to free it up, and it settles back overnight.</p>
 
     <span class="substep divide reveal">Part 2 · Copy our trades</span>
     <p class="intro reveal">Every trade we post uses the same 4 tags. Learn them and you can copy any call.</p>
@@ -338,21 +317,10 @@
     </div>
     <p class="rule reveal"><b>Entry rule:</b> get in as close to our <span class="mono">[BUY]</span> price as you can. If it's already <b>10–15% above</b> our entry, skip it and wait for the next call. Don't chase.</p>
     <p class="rule reveal"><b>Golden rule:</b> Trim into profit, then move your stop to breakeven — so a winner can't turn into a loss.</p>
-
-    <details class="reveal" style="margin-top:18px">
-      <summary><span>Trades &amp; signals — common questions</span><span style="display:flex;align-items:center;gap:14px"><span class="meta">5 questions</span><span class="pm">+</span></span></summary>
-      <div class="body">
-        <div class="faq-q"><h4>How do I follow a signal?</h4><p>First, know the parts of a contract (below) and how to find them on your broker. A signal looks like <span class="mono">[BUY] TSLA 3/8 $180 Call @ 2.00</span>. Then follow the tags: <b>[BUY]</b> buy it · <b>[TRIM]</b> sell part to bank profit · <b>[SELL]</b> sell the rest · <b>[CLOSE]</b> cut a loss.</p></div>
-        <div class="faq-q"><h4>TRIM vs SELL — what's the difference?</h4><p><b>TRIM</b> = sell some (usually half) to lock in profit while keeping a little upside. <b>SELL</b> = sell it all, you're fully out. Example: hold 5 contracts → a TRIM might sell 1–2; a SELL closes all 5. Only have 1 contract? Treat the first TRIM as your sell.</p></div>
-        <div class="faq-q"><h4>Stocks vs options — what's the difference?</h4><p>A stock is owning part of a company. An option is a contract tied to that stock's price — you trade the contract, not the shares. One Call contract is the <i>right</i> to buy 100 shares at a set price, but you never actually have to. You buy contracts cheap and sell them higher.</p></div>
-        <div class="faq-q"><h4>What's a Call and a Put?</h4><p>A <b>Call</b> bets the stock goes up. A <b>Put</b> bets it goes down. Example: <span class="mono">TSLA 3/8 $180 Call</span> bets Tesla is above $180 by March 8.</p></div>
-        <div class="faq-q"><h4>What do the parts of a contract mean?</h4><p>Format: <span class="mono">[Stock] [Expiration] $[Strike] [Call/Put] @ [Price]</span>. Example: <span class="mono">TSLA 3/8 $180 Call @ 2.00</span> — stock TSLA, expires 3/8, strike $180, a Call, price 2.00. Each contract = 100 shares, so <span class="mono">2.00</span> = <span class="mono">$200</span>.</p></div>
-      </div>
-    </details>
   </div>
 </section>
 
-<!-- PHASE 04 — RISK / PORTFOLIO MANAGEMENT (highlighted) -->
+<!-- PHASE 03 — RISK / PORTFOLIO MANAGEMENT (highlighted) -->
 <section id="risk">
   <div class="wrap">
     <span class="phase-id">Phase 03 — Non-negotiable</span>
@@ -385,23 +353,14 @@
           </ul>
         </div>
       </div>
-      <div class="detail" style="margin-top:16px"><b>Protect your wins.</b> Trim into profit. Move your stop to breakeven. Never let a green trade go red. Survive first — the gains add up when you're still here next month.</div>
+      <div class="detail" style="margin-top:16px"><b>Protect your wins.</b> <b>[TRIM]</b> about half into profit (around 20–40%), then move your stop to breakeven so a green trade can't go red. Keep a hard stop near -50%, though we usually <span class="mono">[SELL]</span> well before that. Survive first — the gains add up when you're still here next month.</div>
     </div>
 
     <a class="more-vid reveal" href="https://www.youtube.com/watch?v=fQj-MKsLntU" target="_blank" rel="noopener"><span class="k">Watch next</span> Bonus video — more on risk management <span class="a">&#8594;</span></a>
-
-    <details class="reveal" style="margin-top:18px">
-      <summary><span>Risk &amp; sizing — common questions</span><span style="display:flex;align-items:center;gap:14px"><span class="meta">3 questions</span><span class="pm">+</span></span></summary>
-      <div class="body">
-        <div class="faq-q"><h4>How much per trade? What's a "lotto"?</h4><p>Size by % of your account: <b>Full</b> 3–5%, <b>Small</b> 1–3%, <b>Lotto</b> under 1% (high risk, can go to $0). Small account? You may need a higher % — don't chase $0.05 contracts just to stay "lotto" size; they rarely hit.</p></div>
-        <div class="faq-q"><h4>What's your take-profit / stop-loss plan?</h4><p>Manual trailing take-profit: enter with a few contracts, <b>[TRIM]</b> about half at ~20–40% profit, then move your stop to breakeven so it can't turn into a loss. Hard stop around -50%, but we usually <span class="mono">[SELL]</span> well before that.</p></div>
-        <div class="faq-q"><h4>How does time-to-expiration change the risk?</h4><p>Less time = more risk. <b>1–7 days</b> ultra-high (loses value fast) · <b>8–14</b> high · <b>15–30</b> moderate · <b>31–60</b> low-moderate · <b>60+</b> lowest (LEAPS, long-term).</p></div>
-      </div>
-    </details>
   </div>
 </section>
 
-<!-- PHASE 05 — THE COURSE -->
+<!-- THE COURSE -->
 <section id="course">
   <div class="wrap">
     <span class="phase-id">The free course — Options from zero</span>

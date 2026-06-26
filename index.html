@@ -81,6 +81,16 @@
   .more-vid .k{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
   .more-vid .a{transition:transform .15s}
   .more-vid:hover .a{transform:translateX(3px)}
+  /* big intro CTA — free masterclass replay */
+  .class-cta{display:block;margin-top:36px;padding:28px 30px;border:1px solid var(--accent-dim);border-radius:18px;background:linear-gradient(180deg,color-mix(in srgb,var(--accent) 13%,var(--surface)),var(--surface));transition:transform .15s}
+  .class-cta:hover{transform:translateY(-2px)}
+  .class-cta .badge{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent-dim);border-radius:999px;padding:5px 12px;margin-bottom:14px}
+  .class-cta b{display:block;font-size:clamp(1.4rem,3.4vw,1.95rem);font-weight:700;letter-spacing:-.02em;line-height:1.15;color:var(--text)}
+  .class-cta p{color:var(--muted);font-size:1rem;margin-top:10px;max-width:54ch}
+  .class-cta .go{display:inline-flex;align-items:center;gap:10px;margin-top:20px;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:.92rem;padding:15px 28px;border-radius:11px;background:var(--accent);color:#04130C}
+  [data-theme="light"] .class-cta .go{color:#fff}
+  .class-cta .go .a{transition:transform .15s}
+  .class-cta:hover .go .a{transform:translateX(4px)}
 
   section{padding:56px 0;border-top:1px solid var(--line)}
   .phase-id{font-family:'JetBrains Mono',monospace;font-size:.74rem;letter-spacing:.18em;color:var(--accent);text-transform:uppercase}
@@ -255,6 +265,12 @@
     <p class="tag">/ Your first day, laid out step by step.</p>
     <p class="lead"><b>Full Port University — FPU for short — is an options and futures trading community.</b> We post live trades in our Discord, teach you from scratch, and keep your risk tight. Learn while you earn — no experience needed.</p>
     <p class="lead">You're in. Now get set up the right way. Work top to bottom — each step has a short video. <b>Don't trade until you finish.</b></p>
+    <a class="class-cta reveal" href="https://join.fullportuniversity.com/freeclass" target="_blank" rel="noopener">
+      <span class="badge">Free Masterclass · Replay</span>
+      <b>Start here: watch my full system, in-depth.</b>
+      <p>A replay of one of our most recent masterclasses — I walk through my entire trading system from top to bottom, completely free. The best place to begin before you trade.</p>
+      <span class="go">Watch the free class <span class="a">&#8594;</span></span>
+    </a>
     <a class="ment-cta reveal" href="https://calendly.com/d/cxmn-djx-py5/fullportuniversity-enrollment-session-enrollment" target="_blank" rel="noopener">
       <div>
         <span class="ment-cta-k">Optional · 1-on-1 Mentorship</span>

@@ -84,6 +84,12 @@
   .ment-cta .arr{font-size:1.7rem;color:var(--gold);flex:none;transition:transform .15s}
   .ment-cta:hover .arr{transform:translateX(4px)}
   @media (max-width:560px){.ment-cta{flex-direction:column;align-items:flex-start;gap:14px}}
+  /* "watch next" — secondary video link */
+  .more-vid{display:inline-flex;align-items:center;gap:10px;margin-top:18px;padding:11px 18px;border:1px solid var(--line);border-left:2px solid var(--accent);border-radius:0 10px 10px 0;color:var(--muted);font-size:.92rem;transition:border-color .2s,color .2s}
+  .more-vid:hover{border-color:var(--accent);color:var(--text)}
+  .more-vid .k{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+  .more-vid .a{transition:transform .15s}
+  .more-vid:hover .a{transform:translateX(3px)}
 
   section{padding:56px 0;border-top:1px solid var(--line)}
   .phase-id{font-family:'JetBrains Mono',monospace;font-size:.74rem;letter-spacing:.18em;color:var(--accent);text-transform:uppercase}
@@ -281,9 +287,7 @@
     <p class="intro reveal">First, get on Discord. It's free. Download the app or open it in your browser. The video shows you how.</p>
 
     <div class="video reveal">
-      <!-- ▼▼ PASTE YOUR YOUTUBE <iframe> HERE (replace this .ph block) ▼▼ -->
-      <div class="ph"><div class="play"></div><div class="cap">Video · How to join the Discord</div></div>
-      <!-- ▲▲ END VIDEO PLACEHOLDER ▲▲ -->
+      <iframe src="https://www.youtube.com/embed/yo1q6wrp4rs" title="How to join the Discord" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
     </div>
 
     <div class="access reveal">
@@ -356,9 +360,7 @@
     <p class="intro reveal">The most important part. Good entries don't keep you alive — sizing does. Most people don't blow up because they're wrong. They blow up because they're too big when they're wrong.</p>
 
     <div class="video reveal">
-      <!-- ▼▼ PASTE VIDEO IFRAME HERE ▼▼ -->
-      <div class="ph"><div class="play"></div><div class="cap">Video · Sizing, risk &amp; protecting your portfolio</div></div>
-      <!-- ▲▲ END VIDEO PLACEHOLDER ▲▲ -->
+      <iframe src="https://www.youtube.com/embed/qGpn44i1gVw" title="Sizing, risk &amp; protecting your portfolio" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
     </div>
 
     <div class="risk-wrap reveal">
@@ -385,6 +387,8 @@
       </div>
       <div class="detail" style="margin-top:16px"><b>Protect your wins.</b> Trim into profit. Move your stop to breakeven. Never let a green trade go red. Survive first — the gains add up when you're still here next month.</div>
     </div>
+
+    <a class="more-vid reveal" href="https://www.youtube.com/watch?v=fQj-MKsLntU" target="_blank" rel="noopener"><span class="k">Watch next</span> Bonus video — more on risk management <span class="a">&#8594;</span></a>
 
     <details class="reveal" style="margin-top:18px">
       <summary><span>Risk &amp; sizing — common questions</span><span style="display:flex;align-items:center;gap:14px"><span class="meta">3 questions</span><span class="pm">+</span></span></summary>

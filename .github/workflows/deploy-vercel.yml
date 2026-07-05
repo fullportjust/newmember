@@ -1,0 +1,46 @@
+name: Deploy education site to Vercel
+
+on:
+  workflow_dispatch:
+    inputs:
+      vercel_token:
+        description: Vercel access token (passed at run time, never stored)
+        required: true
+      project:
+        description: Vercel project name to deploy into
+        required: true
+        default: webinar-new-members
+      scope:
+        description: Vercel team scope
+        required: true
+        default: justin-3389s-projects
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mask token in all logs
+        run: echo "::add-mask::${{ github.event.inputs.vercel_token }}"
+
+      - name: Checkout education site repo
+        uses: actions/checkout@v4
+        with:
+          repository: fullportjust/webinar-new-members
+
+      - name: Install Vercel CLI
+        run: npm i -g vercel
+
+      - name: Link and deploy to production
+        run: |
+          vercel link --yes --scope "${{ github.event.inputs.scope }}" --project "${{ github.event.inputs.project }}" --token "${{ github.event.inputs.vercel_token }}"
+          vercel deploy --prod --yes --token "${{ github.event.inputs.vercel_token }}" | tee deploy-url.txt
+
+      - name: Verify deployed page
+        run: |
+          URL=$(tail -1 deploy-url.txt)
+          echo "Deployment URL: $URL"
+          sleep 5
+          echo "HTTP status: $(curl -s -o /dev/null -w '%{http_code}' "$URL")"
+          curl -s "$URL" | grep -o "<title>[^<]*</title>" || echo "TITLE NOT FOUND"
+          echo "Production domain check:"
+          curl -s -o /dev/null -w '%{http_code}\n' "https://${{ github.event.inputs.project }}.vercel.app/" || true
